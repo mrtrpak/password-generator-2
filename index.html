@@ -15,11 +15,29 @@
                 </button>
             </div>
             <div class="optionsContainer">
-                <div class="option length">
+                <div class="option">
                     <label for="passLength">Length of Password between 6-25</label>
                     <input type="number" class="length" id="passLength" min="6" max="25" value="10">
                 </div>
-
+            </div>
+            <div class="option">
+                <label for="uppercase">Include Uppercase</label>
+                <input type="checkbox" id="uppercase" checked>
+            </div>
+            <div class="option">
+                <label for="lowercase">Include Lowercase</label>
+                <input type="checkbox" id="lowercase" checked>
+            </div>
+            <div class="option">
+                <label for="numbers">Include Numbers</label>
+                <input type="checkbox" id="numbers" checked>
+            </div>
+            <div class="option">
+                <label for="symbols">Include Symbols</label>
+                <input type="checkbox" id="symbols" checked>
+            </div>
+            <div class="generate">
+                <button type="submit">Generate Password</button>
             </div>
         </div>
     </body>
