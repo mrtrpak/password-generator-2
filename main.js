@@ -33,6 +33,31 @@ const randomFunc = {
   symbol: addSymbols
 };
 
+const generatePassword = (length, lower, upper, number, symbol) => {
+  let generatedPass = "";
+  const typesCount = lower + upper + number + symbol;
+  const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(
+    item => Object.values(item)[0]
+  );
+
+  if(typesCount === 0) {
+    return;
+  }
+
+  // += is the add assignment operator which takes current var and adds onto it
+  for(let i = 0; i < length; i+= typesCount) {
+    typesArr.forEach(type => {
+      const funcName = Object.keys(type)[0];
+
+      generatedPass += randomFunc[funcName]();
+    });
+  }
+
+  console.log(generatedPass.slice(0, length));
+  const finalPass = generatedPass.slice(0, length);
+  return finalPass;
+}
+
 generateEl.onclick = () => {
   // adding the plus beforehand turns it into a number
   const length = +lengthEl.value;
@@ -59,6 +84,7 @@ copyEl.onclick = () => {
   textarea.select();
   document.execCommand("copy");
   textarea.remove();
+  alert('password copied to clipboard');
 };
 
 console.log(addLowercase());
