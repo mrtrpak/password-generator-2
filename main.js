@@ -1,3 +1,4 @@
+// DOM elements
 const resultEl = document.getElementById("result");
 const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
@@ -8,13 +9,6 @@ const generateEl = document.getElementById("generate");
 const copyEl = document.getElementById("copy");
 
 // Generator functions http://www.net-comber.com/charset.html
-const randomFunc = {
-  upper: addUppercase,
-  lower: addLowercase,
-  number: addNumbers,
-  symbol: addSymbols
-};
-
 const addUppercase = () => {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
@@ -31,6 +25,13 @@ const addSymbols = () => {
   const symbols = "!@#$%^&*()-+=><?.,[]{}";
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
+
+const randomFunc = {
+  upper: addUppercase,
+  lower: addLowercase,
+  number: addNumbers,
+  symbol: addSymbols
+};
 
 console.log(addLowercase());
 console.log(addUppercase());
