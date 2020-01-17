@@ -2,43 +2,44 @@
 <html>
     <head>
         <title>Password 2</title>
-        <link href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div class="container">
-            <h3 class="title">Password Generator</h3>
-            <div class="resultsContainer">
-                <span class="result"></span>
-                <button class="copy">
-                    <i class="fas fa-clipboard"></i>
+            <h3 class="title margin">Password Generator</h3>
+            <div class="resultsContainer margin">
+                <span id="result"></span>
+                <button class="btn" id="copy">
+                    COPY
                 </button>
             </div>
-            <div class="optionsContainer">
+            <div class="optionsContainer margin">
                 <div class="option">
                     <label for="passLength">Length of Password between 6-25</label>
-                    <input type="number" class="length" id="passLength" min="6" max="25" value="10">
+                    <input type="number" id="length" id="passLength" min="6" max="25" value="10">
+                </div>
+                <div class="option">
+                    <label for="uppercase">Include Uppercase</label>
+                    <input type="checkbox" id="uppercase" checked>
+                </div>
+                <div class="option">
+                    <label for="lowercase">Include Lowercase</label>
+                    <input type="checkbox" id="lowercase" checked>
+                </div>
+                <div class="option">
+                    <label for="numbers">Include Numbers</label>
+                    <input type="checkbox" id="numbers" checked>
+                </div>
+                <div class="option">
+                    <label for="symbols">Include Symbols</label>
+                    <input type="checkbox" id="symbols" checked>
                 </div>
             </div>
-            <div class="option">
-                <label for="uppercase">Include Uppercase</label>
-                <input type="checkbox" id="uppercase" checked>
-            </div>
-            <div class="option">
-                <label for="lowercase">Include Lowercase</label>
-                <input type="checkbox" id="lowercase" checked>
-            </div>
-            <div class="option">
-                <label for="numbers">Include Numbers</label>
-                <input type="checkbox" id="numbers" checked>
-            </div>
-            <div class="option">
-                <label for="symbols">Include Symbols</label>
-                <input type="checkbox" id="symbols" checked>
-            </div>
-            <div class="generate">
-                <button type="submit">Generate Password</button>
+            <div class="margin">
+                <button type="submit" class="btn" id="generate">Generate Password</button>
             </div>
         </div>
+
+        <script src="main.js"></script>
     </body>
 </html>
