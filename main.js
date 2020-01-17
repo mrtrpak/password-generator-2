@@ -33,6 +33,34 @@ const randomFunc = {
   symbol: addSymbols
 };
 
+generateEl.onclick = () => {
+  // adding the plus beforehand turns it into a number
+  const length = +lengthEl.value;
+  const withLower = lowercaseEl.checked;
+  const withUpper = uppercaseEl.checked;
+  const withNumber = numbersEl.checked;
+  const withSymbol = symbolsEl.checked;
+
+  resultEl.innerText = generatePassword(
+    length, withLower, withUpper, withNumber, withSymbol
+  );
+};
+
+copyEl.onclick = () => {
+  const textarea = document.createElement("textarea");
+  const password = resultEl.innerText;
+
+  if (!password) {
+    return;
+  }
+
+  textarea.value = password;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+};
+
 console.log(addLowercase());
 console.log(addUppercase());
 console.log(addNumbers());
