@@ -1,4 +1,5 @@
 // DOM elements
+const errMsgEl = document.getElementById("errMsg");
 const resultEl = document.getElementById("result");
 const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
@@ -74,9 +75,18 @@ generateEl.onclick = () => {
   const withNumber = numbersEl.checked;
   const withSymbol = symbolsEl.checked;
 
+  if(!withLower && !withUpper && !withNumber && !withSymbol) {
+    errMsgEl.innerText = "Please choose at least 1 option";
+    errMsgEl.setAttribute("style", "padding: 10px;");
+    return;
+  };
+
   resultEl.innerText = generatePassword(
     length, withLower, withUpper, withNumber, withSymbol
   );
+
+  errMsgEl.setAttribute("style", "");
+  errMsgEl.innerText = "";
 };
 
 copyEl.onclick = () => {
@@ -84,13 +94,20 @@ copyEl.onclick = () => {
   const password = resultEl.innerText;
 
   if (!password) {
+    errMsgEl.innerText = "Please Generate a Password to Copy";
+    errMsgEl.setAttribute("style", "padding: 10px;");
     return;
   }
+
+  errMsgEl.setAttribute("style", "");
+  errMsgEl.innerText = "";
 
   textarea.value = password;
   document.body.appendChild(textarea);
   textarea.select();
   document.execCommand("copy");
   textarea.remove();
-  alert('password copied to clipboard');
+
+  errMsgEl.setAttribute("style", "background-color: green; padding: 10px;");
+  errMsgEl.innerText = "Password saved to your clipboard!";
 };
