@@ -1,5 +1,6 @@
 // DOM elements
 const errMsgEl = document.getElementById("errMsg");
+const errMsgStyle = errMsgEl.setAttribute("style", "padding: 10px;");
 const resultEl = document.getElementById("result");
 const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
@@ -45,7 +46,7 @@ const generatePassword = (length, lower, upper, number, symbol) => {
     return;
   };
 
-  // += is the add assignment operator which takes current var and adds onto it
+  // += is the add assignment operator which takes current variable and adds onto it
   for(let i = 0; i < length; i+= typesCount) {
     typesArr.forEach(type => {
       const funcName = Object.keys(type)[0];
@@ -53,6 +54,7 @@ const generatePassword = (length, lower, upper, number, symbol) => {
       generatedPass += randomFunc[funcName]();
     });
   };
+  
   const randomCharactersArray = generatedPass.split("");
   const shufflePass = () => {
     for (let i = randomCharactersArray.length - 1; i > 0; i--) {
@@ -61,8 +63,8 @@ const generatePassword = (length, lower, upper, number, symbol) => {
     }
     return randomCharactersArray;
   };
-  const rearrangePassword = shufflePass().toString().replace(/,/g, "");
 
+  const rearrangePassword = shufflePass().toString().replace(/,/g, "");
   const finalPass = rearrangePassword.slice(0, length);
   return finalPass;
 };
@@ -76,10 +78,14 @@ generateEl.onclick = () => {
   const withSymbol = symbolsEl.checked;
 
   if(!withLower && !withUpper && !withNumber && !withSymbol) {
+    errMsgStyle;
     errMsgEl.innerText = "Please choose at least 1 option";
-    errMsgEl.setAttribute("style", "padding: 10px;");
     return;
-  };
+  } else if (length < 8 || length > 30) {
+    errMsgStyle;
+    errMsgEl.innerText = "Please chose a number between 8-30";
+    return;
+  }
 
   resultEl.innerText = generatePassword(
     length, withLower, withUpper, withNumber, withSymbol
@@ -94,8 +100,8 @@ copyEl.onclick = () => {
   const password = resultEl.innerText;
 
   if (!password) {
+    errMsgStyle;
     errMsgEl.innerText = "Please Generate a Password to Copy";
-    errMsgEl.setAttribute("style", "padding: 10px;");
     return;
   }
 
