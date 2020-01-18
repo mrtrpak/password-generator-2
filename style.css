@@ -6,13 +6,22 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.errMsgContainer {
+    text-align: center;
+}
+
+#errMsg {
+    background-color: firebrick;
+    color: whitesmoke;
+}
+
 .container {
     width: 50%;
     height: 330px;
     border: 2px solid black;
     box-shadow: 10px 15px 20px #888888;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 5%;
     background-color: darkblue;
 }
 
