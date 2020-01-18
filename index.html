@@ -5,6 +5,9 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class="errMsgContainer">
+            <span id="errMsg"></span>
+        </div>
         <div class="container">
             <h3 class="title margin">Password Generator</h3>
             <div class="resultsContainer margin">
@@ -15,7 +18,7 @@
             </div>
             <div class="optionsContainer margin">
                 <div class="option">
-                    <label for="passLength">Length of Password between 6-25</label>
+                    <label for="passLength">Length of Password from 6-25</label>
                     <input type="number" id="length" id="passLength" min="6" max="25" value="10">
                 </div>
                 <div class="option">
