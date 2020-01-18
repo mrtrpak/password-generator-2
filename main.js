@@ -22,7 +22,7 @@ const addNumbers = () => {
 }
 
 const addSymbols = () => {
-  const symbols = "!@#$%^&*()-+=><?.,[]{}";
+  const symbols = "!@#$%^&*()-+=><?.[]{}";
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
@@ -34,7 +34,7 @@ const randomFunc = {
 };
 
 const generatePassword = (length, lower, upper, number, symbol) => {
-  let generatedPass = "";
+  let generatedPass = [];
   const typesCount = lower + upper + number + symbol;
   const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(
     item => Object.values(item)[0]
@@ -42,7 +42,7 @@ const generatePassword = (length, lower, upper, number, symbol) => {
 
   if(typesCount === 0) {
     return;
-  }
+  };
 
   // += is the add assignment operator which takes current var and adds onto it
   for(let i = 0; i < length; i+= typesCount) {
@@ -51,12 +51,20 @@ const generatePassword = (length, lower, upper, number, symbol) => {
 
       generatedPass += randomFunc[funcName]();
     });
-  }
+  };
+  const randomCharactersArray = generatedPass.split("");
+  const shufflePass = () => {
+    for (let i = randomCharactersArray.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [randomCharactersArray[i], randomCharactersArray[j]] = [randomCharactersArray[j], randomCharactersArray[i]];
+    }
+    return randomCharactersArray;
+  };
+  const rearrangePassword = shufflePass().toString().replace(/,/g, "");
 
-  console.log(generatedPass.slice(0, length));
-  const finalPass = generatedPass.slice(0, length);
+  const finalPass = rearrangePassword.slice(0, length);
   return finalPass;
-}
+};
 
 generateEl.onclick = () => {
   // adding the plus beforehand turns it into a number
@@ -86,8 +94,3 @@ copyEl.onclick = () => {
   textarea.remove();
   alert('password copied to clipboard');
 };
-
-console.log(addLowercase());
-console.log(addUppercase());
-console.log(addNumbers());
-console.log(addSymbols());
