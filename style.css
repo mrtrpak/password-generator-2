@@ -6,16 +6,6 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.errMsgContainer {
-    text-align: center;
-    margin: 33px auto;
-}
-
-#errMsg {
-    background-color: firebrick;
-    color: whitesmoke;
-}
-
 .container {
     width: 50%;
     height: 330px;
@@ -35,6 +25,7 @@ body {
     color: whitesmoke;
     text-decoration: underline;
     text-align: center;
+    padding: 3px;
 }
 
 .resultsContainer {
@@ -60,11 +51,25 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
+    transition: all 0.5s;
+}
+
+.btn:hover {
+    box-shadow: 3px 3px 3px #888888;
+    background-color: green;
 }
 
 #copy {
     margin-right: 5px;
     border-radius: 6px;
+}
+
+#length {
+    width: 33px;
+    margin-right: 3px;
+    padding-right: 3px;
+    text-align: right;
+    direction: rtl;
 }
 
 .option {
@@ -81,6 +86,16 @@ body {
     margin-top: 30px;
     height: 30px;
     border-radius: 16px;
+}
+
+.errMsgContainer {
+    text-align: center;
+    margin: 33px auto;
+}
+
+#errMsg {
+    background-color: firebrick;
+    color: whitesmoke;
 }
 
 @media screen and (min-width: 1000px) {
