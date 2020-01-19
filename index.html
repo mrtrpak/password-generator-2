@@ -6,7 +6,7 @@
     </head>
     <body>
         <div class="container">
-            <h3 class="title margin">Password Generator</h3>
+            <h2 class="title margin">Password Generator</h2>
             <div class="resultsContainer margin">
                 <span id="result"></span>
                 <button class="btn" id="copy">
@@ -15,22 +15,22 @@
             </div>
             <div class="optionsContainer margin">
                 <div class="option">
-                    <label for="passLength">Length of Password from 8-30</label>
-                    <input type="number" id="length" id="passLength" min="8" max="30" value="12">
+                    <label for="passLength">Length of Password from 10-99</label>
+                    <input type="number" id="length" id="passLength" min="10" max="99" value="10">
                 </div>
-                <div class="option">
+                <div class="option box">
                     <label for="uppercase">Include Uppercase</label>
                     <input type="checkbox" id="uppercase" checked>
                 </div>
-                <div class="option">
+                <div class="option box">
                     <label for="lowercase">Include Lowercase</label>
                     <input type="checkbox" id="lowercase" checked>
                 </div>
-                <div class="option">
+                <div class="option box">
                     <label for="numbers">Include Numbers</label>
                     <input type="checkbox" id="numbers" checked>
                 </div>
-                <div class="option">
+                <div class="option box">
                     <label for="symbols">Include Symbols</label>
                     <input type="checkbox" id="symbols" checked>
                 </div>
