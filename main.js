@@ -54,7 +54,7 @@ const generatePassword = (length, lower, upper, number, symbol) => {
       generatedPass += randomFunc[funcName]();
     });
   };
-  
+
   const randomCharactersArray = generatedPass.split("");
   const shufflePass = () => {
     for (let i = randomCharactersArray.length - 1; i > 0; i--) {
@@ -81,9 +81,9 @@ generateEl.onclick = () => {
     errMsgStyle;
     errMsgEl.innerText = "Please choose at least 1 option";
     return;
-  } else if (length < 8 || length > 30) {
+  } else if (length < 10 || length > 99) {
     errMsgStyle;
-    errMsgEl.innerText = "Please chose a number between 8-30";
+    errMsgEl.innerText = "Please chose a number between 10-99";
     return;
   }
 
@@ -114,6 +114,6 @@ copyEl.onclick = () => {
   document.execCommand("copy");
   textarea.remove();
 
-  errMsgEl.setAttribute("style", "background-color: green; padding: 10px;");
+  errMsgEl.setAttribute("style", "background-color: limegreen; padding: 10px;");
   errMsgEl.innerText = "Password saved to your clipboard!";
 };
