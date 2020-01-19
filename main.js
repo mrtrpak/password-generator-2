@@ -10,6 +10,9 @@ const symbolsEl = document.getElementById("symbols");
 const generateEl = document.getElementById("generate");
 const copyEl = document.getElementById("copy");
 
+// so errMsg div doesn't show on accident
+errMsgEl.setAttribute("style", "");
+
 // Generator functions http://www.net-comber.com/charset.html
 const addUppercase = () => {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
