@@ -42,6 +42,9 @@ body {
 #result {
     margin: auto;
     color: whitesmoke;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .btn {
