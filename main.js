@@ -1,6 +1,5 @@
 // DOM elements
 const errMsgEl = document.getElementById("errMsg");
-const errMsgStyle = errMsgEl.setAttribute("style", "padding: 10px;");
 const resultEl = document.getElementById("result");
 const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
@@ -10,26 +9,27 @@ const symbolsEl = document.getElementById("symbols");
 const generateEl = document.getElementById("generate");
 const copyEl = document.getElementById("copy");
 
+const errMsgStyle = errMsgEl.setAttribute("style", "padding: 10px;");
 // so errMsg div doesn't show on accident
 errMsgEl.setAttribute("style", "");
 
 // Generator functions http://www.net-comber.com/charset.html
 const addUppercase = () => {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
+};
 
 const addLowercase = () => {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
+};
 
 const addNumbers = () => {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
+};
 
 const addSymbols = () => {
   const symbols = "!@#$%^&*()-+=><?.[]{}";
   return symbols[Math.floor(Math.random() * symbols.length)];
-}
+};
 
 const randomFunc = {
   upper: addUppercase,
