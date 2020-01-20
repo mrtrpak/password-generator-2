@@ -36,10 +36,10 @@ const randomFunc = {
   symbol: addSymbols
 };
 
-const generatePassword = (length, lower, upper, number, symbol) => {
+const generatePassword = (length, upper, lower, number, symbol) => {
   let generatedPass = [];
-  const typesCount = lower + upper + number + symbol;
-  const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(
+  const typesCount = upper + lower + number + symbol;
+  const typesArr = [{upper}, {lower}, {number}, {symbol}].filter(
     item => Object.values(item)[0]
   );
 
