@@ -10,8 +10,6 @@ const generateEl = document.getElementById("generate");
 const copyEl = document.getElementById("copy");
 
 const errMsgStyle = errMsgEl.setAttribute("style", "padding: 10px;");
-// so errMsg div doesn't show on accident
-errMsgEl.setAttribute("style", "");
 
 // Generator functions http://www.net-comber.com/charset.html
 const addUppercase = () => {
@@ -50,7 +48,7 @@ const generatePassword = (length, lower, upper, number, symbol) => {
   };
 
   // += is the add assignment operator which takes current variable and adds onto it
-  for(let i = 0; i < length; i+= typesCount) {
+  for(let i = 0; i < length; i += typesCount) {
     typesArr.forEach(type => {
       const funcName = Object.keys(type)[0];
 
