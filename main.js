@@ -9,8 +9,6 @@ const symbolsEl = document.getElementById("symbols");
 const generateEl = document.getElementById("generate");
 const copyEl = document.getElementById("copy");
 
-const errMsgStyle = errMsgEl.setAttribute("style", "padding: 10px;");
-
 // Generator functions http://www.net-comber.com/charset.html
 const addUppercase = () => {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
@@ -45,15 +43,15 @@ const generatePassword = (length, upper, lower, number, symbol) => {
 
   if(typesCount === 0) {
     return;
-  };
-
-  // += is the add assignment operator which takes current variable and adds onto it
-  for(let i = 0; i < length; i += typesCount) {
-    typesArr.forEach(type => {
-      const funcName = Object.keys(type)[0];
-
-      generatedPass += randomFunc[funcName]();
-    });
+  } else {
+    // += is the add assignment operator which takes current variable and adds onto it
+    for(let i = 0; i < length; i += typesCount) {
+      typesArr.forEach(type => {
+        const funcName = Object.keys(type)[0];
+        
+        generatedPass += randomFunc[funcName]();
+      });
+    };
   };
 
   const randomCharactersArray = generatedPass.split("");
@@ -79,42 +77,42 @@ generateEl.onclick = () => {
   const withSymbol = symbolsEl.checked;
 
   if(!withLower && !withUpper && !withNumber && !withSymbol) {
-    errMsgStyle;
+    errMsgEl.setAttribute("style", "padding: 10px; background-color: firebrick");
     errMsgEl.innerText = "Please choose at least 1 option";
     return;
   } else if (length < 10 || length > 99) {
-    errMsgStyle;
+    errMsgEl.setAttribute("style", "padding: 10px; background-color: firebrick");
     errMsgEl.innerText = "Please chose a number between 10-99";
     return;
-  }
-
-  resultEl.innerText = generatePassword(
-    length, withLower, withUpper, withNumber, withSymbol
-  );
-
-  errMsgEl.setAttribute("style", "");
-  errMsgEl.innerText = "";
-};
+  } else {
+    resultEl.innerText = generatePassword(
+      length, withLower, withUpper, withNumber, withSymbol
+      );
+      
+      errMsgEl.setAttribute("style", "background-color: limegreen; padding: 10px");
+      errMsgEl.innerText = "Password generated, click COPY!";
+    };
+  };
 
 copyEl.onclick = () => {
   const textarea = document.createElement("textarea");
   const password = resultEl.innerText;
 
   if (!password) {
-    errMsgStyle;
+    errMsgEl.setAttribute("style", "background-color: firebrick; padding: 10px");
     errMsgEl.innerText = "Please Generate a Password to Copy";
     return;
-  }
-
-  errMsgEl.setAttribute("style", "");
-  errMsgEl.innerText = "";
-
-  textarea.value = password;
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand("copy");
-  textarea.remove();
-
-  errMsgEl.setAttribute("style", "background-color: limegreen; padding: 10px;");
-  errMsgEl.innerText = "Password saved to your clipboard!";
+  } else {
+    errMsgEl.setAttribute("style", "background-color: firebrick");
+    errMsgEl.innerText = "";
+    
+    textarea.value = password;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+    
+    errMsgEl.setAttribute("style", "background-color: limegreen; padding: 10px;");
+    errMsgEl.innerText = "Password saved to your clipboard!";
+  };
 };
