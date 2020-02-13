@@ -10,12 +10,12 @@ const generateEl = document.getElementById("generate");
 const copyEl = document.getElementById("copy");
 
 // Generator functions http://www.net-comber.com/charset.html
-const addLowercase = () => {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-};
-
 const addUppercase = () => {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+};
+
+const addLowercase = () => {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 };
 
 const addNumbers = () => {
