@@ -6,7 +6,12 @@ The point of this repo is for me to sharpen my skills. I have created a password
 
 ## How to Start
 
-Once the code is forked view the html file in the browser to generate your own password.
+Once the code is forked view the html file in the browser to generate your own password. There is also the option to copy the password to your clipboard once a password is generated.
+
+## Password Options
+
+- Length: between 10-99 characters
+- Character sets: lowercase letters, uppercase letters, numbers and symbols
 
 ## Obstacles
 
