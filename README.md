@@ -4,6 +4,13 @@
 
 The point of this repo is for me to sharpen my skills. I have created a password generator back when I was first learning to code. Now that I have more experience I want to see how I can take that initial one and make it even better.
 
+## Table of Contents
+
+- [Getting Started](#How-to-Start)
+- [Options](#Password-Options)
+- [Obstacles](#Obstacles)
+- [Link](#Link-to-previous-generator)
+
 ## How to Start
 
 Once the code is forked view the html file in the browser to generate your own password. There is also the option to copy the password to your clipboard once a password is generated.
